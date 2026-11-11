@@ -58,7 +58,7 @@ def simulate(delay_ms: float, params: Parameters) -> tuple[list[dict[str, float]
     stability = "diverged" if diverged else ("settled" if settling_time is not None else "not_settled")
     summary: dict[str, float | str] = {
         "delay_ms": delay_ms, "overshoot_pct": overshoot_pct,
-        "settling_time_s": settling_time if settling_time is not None else "not_reached",
+        "settling_time_s": round(settling_time, 3) if settling_time is not None else "not_reached",
         "final_error": final_error, "peak_position": peak_position if target_reached else 0.0,
         "stability": stability,
     }
